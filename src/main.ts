@@ -8,7 +8,7 @@ async function run(): Promise<void> {
     core.getInput('review_turnaround_hours'),
     10
   )
-  const recurringReminder = parseBool(core.getInput('recurring_reminder'), false)
+  const recurringReminder = core.getInput('recurring_reminder')
 
   try {
     const {data: pullRequests} = await octokit.pulls.list({
