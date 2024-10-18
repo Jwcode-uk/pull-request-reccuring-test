@@ -8,6 +8,7 @@ async function run(): Promise<void> {
     core.getInput('review_turnaround_hours'),
     10
   )
+  const recurringReminder = parseBool(core.getInput('github_token'), false)
 
   try {
     const {data: pullRequests} = await octokit.pulls.list({
@@ -98,7 +99,7 @@ async function run(): Promise<void> {
         ).length > 0
 
       core.info(`hasReminderComment: ${hasReminderComment}`)
-      if (hasReminderComment) {
+      if (hasReminderComment && recurringReminder) {
         continue
       }
 
