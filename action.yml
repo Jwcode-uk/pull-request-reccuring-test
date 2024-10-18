@@ -11,6 +11,10 @@ inputs:
   review_turnaround_hours:
     required: true
     description: 'This is the deadline for reviews. If this time is exceeded, a reminder wil be send.'
+  recurring_reminder:
+    description: 'Whether to send recurring reminders every run once review_turnaround_hours has past'
+    required: false
+    default: 'false'
 runs:
   using: 'node16'
   main: 'dist/index.js'
