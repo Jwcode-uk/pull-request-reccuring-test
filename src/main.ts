@@ -99,6 +99,7 @@ async function run(): Promise<void> {
         ).length > 0
 
       core.info(`hasReminderComment: ${hasReminderComment}`)
+      core.info(`recurringReminder: ${recurringReminder}`)
       if (hasReminderComment && !recurringReminder) {
         continue
       }
